@@ -1,1 +1,2 @@
 # AbsenceApp
+absence for self
