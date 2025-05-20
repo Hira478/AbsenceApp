@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced Absence Logger</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Enhanced Absence Logger</h1>
+
+      <div class="input-area">
+        <label for="notesInput">Notes (optional):</label>
+        <input
+          type="text"
+          id="notesInput"
+          placeholder="e.g., WFH, Client Meeting"
+        />
+      </div>
+
+      <div class="controls">
+        <button id="clockInBtn">Clock In</button>
+        <button id="clockOutBtn">Clock Out</button>
+      </div>
+
+      <div class="status">
+        <h2>Current Status</h2>
+        <p id="currentStatus">Not clocked in</p>
+        <p id="locationStatus"></p>
+      </div>
+
+      <div class="log-actions">
+        <button id="downloadLogsBtn">Download Logs (JSON)</button>
+        <button id="clearLogsBtn">Clear All Logs</button>
+      </div>
+
+      <div class="log">
+        <h2>Log History</h2>
+        <ul id="logList"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
