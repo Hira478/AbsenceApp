@@ -1,46 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Enhanced Absence Logger</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Absence Logger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="container">
-      <h1>Enhanced Absence Logger</h1>
+        <h1>Advanced Absence Logger</h1>
 
-      <div class="input-area">
-        <label for="notesInput">Notes (optional):</label>
-        <input
-          type="text"
-          id="notesInput"
-          placeholder="e.g., WFH, Client Meeting"
-        />
-      </div>
+        <div class="input-area">
+            <label for="notesInput">Notes (optional):</label>
+            <input type="text" id="notesInput" placeholder="e.g., WFH, Client Meeting">
+        </div>
 
-      <div class="controls">
-        <button id="clockInBtn">Clock In</button>
-        <button id="clockOutBtn">Clock Out</button>
-      </div>
+        <div class="controls">
+            <button id="clockInBtn">Clock In</button>
+            <button id="clockOutBtn">Clock Out</button>
+        </div>
 
-      <div class="status">
-        <h2>Current Status</h2>
-        <p id="currentStatus">Not clocked in</p>
-        <p id="locationStatus"></p>
-      </div>
+        <div class="status">
+            <h2>Current Status</h2>
+            <p id="currentStatus">Not clocked in</p>
+            <p id="locationStatus"></p> </div>
 
-      <div class="log-actions">
-        <button id="downloadLogsBtn">Download Logs (JSON)</button>
-        <button id="clearLogsBtn">Clear All Logs</button>
-      </div>
+        <hr class="separator">
 
-      <div class="log">
-        <h2>Log History</h2>
-        <ul id="logList"></ul>
-      </div>
+        <div class="filters-summary-area">
+            <div class="filters">
+                <h3>Filter Logs</h3>
+                <label for="monthFilter">Month:</label>
+                <select id="monthFilter">
+                    <option value="">All</option>
+                    </select>
+                <label for="yearFilter">Year:</label>
+                <select id="yearFilter">
+                    <option value="">All</option>
+                    </select>
+                <button id="applyFilterBtn">Apply Filter</button>
+                <button id="resetFilterBtn">Reset Filter</button>
+            </div>
+
+            <div class="summary">
+                <h3>Log Summary (Current View)</h3>
+                <p id="logSummaryText">No logs to summarize.</p>
+            </div>
+        </div>
+
+
+        <div class="log-actions">
+            <button id="downloadLogsBtn">Download Current View (JSON)</button>
+            <button id="clearLogsBtn">Clear All Logs</button>
+        </div>
+
+        <div class="log">
+            <h2>Log History</h2>
+            <ul id="logList">
+                </ul>
+            <div class="pagination-controls">
+                <button id="prevPageBtn" disabled>Previous</button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button id="nextPageBtn" disabled>Next</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
