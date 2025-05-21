@@ -1,198 +1,256 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
 .container {
-  max-width: 750px; /* Slightly wider for notes */
-  margin: auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Slightly wider */
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1,
-h2 {
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
+h1, h2, h3 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px; /* Adjusted margin */
+}
+h3 {
+    margin-top: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
 }
 
 .input-area {
-  margin-bottom: 15px;
-  text-align: center; /* Center the input area contents */
+    margin-bottom: 15px;
+    text-align: center;
 }
-
 .input-area label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
 }
-
 .input-area input[type="text"] {
-  width: 80%;
-  max-width: 400px; /* Max width for the input */
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    width: 80%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .controls {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
-
 .controls button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease, opacity 0.3s ease; /* Added opacity transition */
-  min-width: 120px; /* Ensure buttons have a minimum width */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    min-width: 120px;
 }
-
-.controls button:hover {
-  background-color: #0056b3;
+.controls button:hover:not(:disabled) {
+    background-color: #0056b3;
 }
-
 .controls button:disabled {
-  /* Style for disabled buttons */
-  background-color: #cccccc;
-  cursor: not-allowed;
-  opacity: 0.7;
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
-
 .controls button#clockOutBtn {
-  background-color: #dc3545;
+    background-color: #dc3545;
 }
-
-.controls button#clockOutBtn:hover {
-  background-color: #c82333;
-}
-.controls button#clockOutBtn:disabled {
-  background-color: #cccccc; /* Consistent disabled style */
+.controls button#clockOutBtn:hover:not(:disabled) {
+    background-color: #c82333;
 }
 
 .status {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
-
 .status p {
-  font-size: 1.1em;
-  margin-bottom: 5px;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+#locationStatus {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #555;
+    min-height: 1.2em;
 }
 
-#locationStatus {
-  font-style: italic;
-  font-size: 0.9em;
-  color: #555;
-  min-height: 1.2em; /* Reserve space to prevent layout shifts */
+hr.separator {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 30px 0;
+}
+
+.filters-summary-area {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between;
+    gap: 20px; /* Space between filter and summary */
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.filters, .summary {
+    flex: 1; /* Allow them to take available space */
+    min-width: 280px; /* Minimum width before wrapping */
+}
+
+.filters label {
+    margin-right: 5px;
+    margin-left: 10px;
+    font-size: 0.9em;
+}
+.filters select {
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+.filters button {
+    padding: 6px 12px;
+    font-size: 0.9em;
+    margin-left: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+#applyFilterBtn {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+#applyFilterBtn:hover {
+    background-color: #218838;
+}
+#resetFilterBtn {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+}
+#resetFilterBtn:hover {
+    background-color: #5a6268;
+}
+
+.summary p {
+    font-size: 0.95em;
+    color: #333;
+    margin-top: 5px;
 }
 
 .log-actions {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
-
 .log-actions button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+    background-color: #17a2b8; /* Info color for download */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
-
-.log-actions button:hover {
-  background-color: #218838;
+.log-actions button:hover:not(:disabled) {
+    background-color: #138496;
 }
-
 .log-actions button#clearLogsBtn {
-  background-color: #ffc107;
-  color: #333;
+    background-color: #ffc107;
+    color: #333;
 }
-
-.log-actions button#clearLogsBtn:hover {
-  background-color: #e0a800;
+.log-actions button#clearLogsBtn:hover:not(:disabled) {
+    background-color: #e0a800;
 }
 .log-actions button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-  opacity: 0.7;
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .log ul {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
+    min-height: 100px; /* Prevent collapse when empty */
 }
-
 .log li {
-  background: #e9ecef;
-  margin-bottom: 10px; /* Increased margin */
-  padding: 12px; /* Increased padding */
-  border-radius: 4px;
-  font-size: 0.95em;
-  border-left: 5px solid #007bff;
-  line-height: 1.5; /* Improved line spacing within list item */
+    background: #e9ecef;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 0.95em;
+    border-left: 5px solid #007bff;
+    line-height: 1.5;
 }
-
-.log li.clock-out {
-  border-left-color: #dc3545;
-}
-
+.log li.clock-out { border-left-color: #dc3545; }
 .log li .entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
 }
-
-.log li .time {
-  font-weight: bold;
-  font-size: 1.05em; /* Slightly larger time */
-}
-
-.log li .type {
-  font-style: italic;
-  color: #444;
-}
-
+.log li .time { font-weight: bold; font-size: 1.05em; }
+.log li .type { font-style: italic; color: #444; }
 .log li .notes {
-  margin-top: 5px;
-  padding-left: 10px;
-  border-left: 2px solid #adb5bd;
-  font-style: italic;
-  color: #333;
-  white-space: pre-wrap; /* Preserve whitespace and newlines in notes */
-  word-break: break-word; /* Break long words in notes */
+    margin-top: 5px;
+    padding-left: 10px;
+    border-left: 2px solid #adb5bd;
+    font-style: italic;
+    color: #333;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
-
 .log li .geo {
-  font-size: 0.85em;
-  color: #555;
-  display: block;
-  margin-top: 6px;
+    font-size: 0.85em;
+    color: #555;
+    display: block;
+    margin-top: 6px;
 }
-.log li .geo a {
-  /* Style for the map link */
-  color: #0056b3;
-  text-decoration: none;
+.log li .geo a { color: #0056b3; text-decoration: none; }
+.log li .geo a:hover { text-decoration: underline; }
+
+.pagination-controls {
+    text-align: center;
+    margin-top: 20px;
 }
-.log li .geo a:hover {
-  text-decoration: underline;
+.pagination-controls button {
+    padding: 8px 15px;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.pagination-controls button:hover:not(:disabled) {
+    background-color: #e2e6ea;
+}
+.pagination-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: #f8f9fa;
+}
+.pagination-controls span {
+    font-size: 0.9em;
+    color: #333;
 }
